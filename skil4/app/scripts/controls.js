@@ -1,4 +1,3 @@
-
 window.Controls = (function() {
     'use strict';
 
@@ -57,7 +56,7 @@ window.Controls = (function() {
         this._didJump = false;
         return answer;
     };
-    
+
     // Export singleton.
     return new Controls();
 })();

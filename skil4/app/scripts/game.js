@@ -1,87 +1,90 @@
-
 window.Game = (function() {
-	'use strict';
+    'use strict';
 
-	/**
-	 * Main game class.
-	 * @param {Element} el jQuery element containing the game.
-	 * @constructor
-	 */
-	var Game = function(el) {
-		this.el = el;
-		this.player = new window.Player(this.el.find('.Player'), this);
-		this.isPlaying = false;
+    /**
+     * Main game class.
+     * @param {Element} el jQuery element containing the game.
+     * @constructor
+     */
+    var Game = function(el) {
+        this.el = el;
+        this.player = new window.Player(this.el.find('.Player'), this);
+        this.isPlaying = false;
 
-		// Cache a bound onFrame since we need it each frame.
-		this.onFrame = this.onFrame.bind(this);
-	};
+        var fontSize = Math.min(
+            window.innerWidth / 102.4,
+            window.innerHeight / 57.6
+        );
+        el.css('fontSize', fontSize + 'px');
 
-	/**
-	 * Runs every frame. Calculates a delta and allows each game
-	 * entity to update itself.
-	 */
-	Game.prototype.onFrame = function() {
-		// Check if the game loop should stop.
-		if (!this.isPlaying) {
-			return;
-		}
+        // Cache a bound onFrame since we need it each frame.
+        this.onFrame = this.onFrame.bind(this);
+    };
 
-		// Calculate how long since last frame in seconds.
-		var now = +new Date() / 1000,
-				delta = now - this.lastFrame;
-		this.lastFrame = now;
+    /**
+     * Runs every frame. Calculates a delta and allows each game
+     * entity to update itself.
+     */
+    Game.prototype.onFrame = function() {
+        // Check if the game loop should stop.
+        if (!this.isPlaying) {
+            return;
+        }
 
-		// Update game entities.
-		this.player.onFrame(delta);
+        // Calculate how long since last frame in seconds.
+        var now = +new Date() / 1000,
+            delta = now - this.lastFrame;
+        this.lastFrame = now;
 
-		// Request next frame.
-		window.requestAnimationFrame(this.onFrame);
-	};
+        // Update game entities.
+        this.player.onFrame(delta);
 
-	/**
-	 * Starts a new game.
-	 */
-	Game.prototype.start = function() {
-		this.reset();
+        // Request next frame.
+        window.requestAnimationFrame(this.onFrame);
+    };
 
-		// Restart the onFrame loop
-		this.lastFrame = +new Date() / 1000;
-		window.requestAnimationFrame(this.onFrame);
-		this.isPlaying = true;
-	};
+    /**
+     * Starts a new game.
+     */
+    Game.prototype.start = function() {
+        this.reset();
 
-	/**
-	 * Resets the state of the game so a new game can be started.
-	 */
-	Game.prototype.reset = function() {
-		this.player.reset();
-	};
+        // Restart the onFrame loop
+        this.lastFrame = +new Date() / 1000;
+        window.requestAnimationFrame(this.onFrame);
+        this.isPlaying = true;
+    };
 
-	/**
-	 * Signals that the game is over.
-	 */
-	Game.prototype.gameover = function() {
-		this.isPlaying = false;
+    /**
+     * Resets the state of the game so a new game can be started.
+     */
+    Game.prototype.reset = function() {
+        this.player.reset();
+    };
 
-		// Should be refactored into a Scoreboard class.
-		var that = this;
-		var scoreboardEl = this.el.find('.Scoreboard');
-		scoreboardEl
-			.addClass('is-visible')
-			.find('.Scoreboard-restart')
-				.one('click', function() {
-					scoreboardEl.removeClass('is-visible');
-					that.start();
-				});
-	};
+    /**
+     * Signals that the game is over.
+     */
+    Game.prototype.gameover = function() {
+        this.isPlaying = false;
 
-	/**
-	 * Some shared constants.
-	 */
-	Game.prototype.WORLD_WIDTH = 102.4;
-	Game.prototype.WORLD_HEIGHT = 57.6;
+        // Should be refactored into a Scoreboard class.
+        var that = this;
+        var scoreboardEl = this.el.find('.Scoreboard');
+        scoreboardEl
+            .addClass('is-visible')
+            .find('.Scoreboard-restart')
+            .one('click', function() {
+                scoreboardEl.removeClass('is-visible');
+                that.start();
+            });
+    };
 
-	return Game;
+    /**
+     * Some shared constants.
+     */
+    Game.prototype.WORLD_WIDTH = 102.4;
+    Game.prototype.WORLD_HEIGHT = 57.6;
+
+    return Game;
 })();
-
-
