@@ -4,7 +4,30 @@
 	left: 0;
 	width: 5em;
 	height: 5em;
-	background: blue;
+	border-radius: 10px;
+	background: yellow;
+}
+
+.Player-Wings {
+	position: absolute;
+	left: 0.25em;
+	top: 0.4em;
+	height: 2em;
+	width: 3em;
+	border-radius: 10px;
+
+	background-color: orangered;
+	transform-origin: top left;
+	animation: flap 0.4s infinite;
+}
+
+@keyframes flap {
+	from{
+		transform: rotateX(0);
+	}
+	to{
+		transform: rotateX(180deg);
+	}
 }
 
 .Scoreboard {
@@ -46,7 +69,6 @@ background: black;
 }
 .browsehappy {
 margin: 0.2em 0;
-background: ?#?ccc?;
 color: #000;
 padding: 0.2em 0;
 }
@@ -60,5 +82,5 @@ height: 57.6em;
 margin-left: -51.2em;
 margin-top: -28.8em;
 overflow: hidden;
-background: red;
+background-image: url('https://secure.static.tumblr.com/019aade9dc009dc51d74af7c9afbc06f/8tyh04b/Z1Cn1f2lv/tumblr_static_tbg.png');
 }
