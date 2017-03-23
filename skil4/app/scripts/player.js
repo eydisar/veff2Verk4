@@ -26,7 +26,6 @@ window.Player = (function() {
     };
 
     Player.prototype.onFrame = function(delta) {
-        this.pos.y += delta * 5;
         /* if (Controls.keys.right) {
              this.pos.x += delta * SPEED;
          }
@@ -42,6 +41,8 @@ window.Player = (function() {
             var playerEl = this.el.find('.Player');
             playerEl
                 .addClass('is-moving');
+        } else {
+            this.pos.y += delta * 10;
         }
 
         this.checkCollisionWithBounds();
