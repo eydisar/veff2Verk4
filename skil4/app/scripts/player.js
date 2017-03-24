@@ -1,6 +1,8 @@
 window.Player = (function() {
     'use strict';
 
+    var playing = false;
+
     var Controls = window.Controls;
 
     // All these constants are in em's, multiply by 10 pixels
@@ -35,13 +37,15 @@ window.Player = (function() {
          if (Controls.keys.down) {
              this.pos.y += delta * SPEED;
          }*/
+
         if (Controls.keys.space) {
+            playing = true;
             this.pos.y -= delta * SPEED;
 
-            var playerEl = this.el.find('.Player');
-            playerEl
-                .addClass('is-moving');
-        } else {
+            /* var playerEl = this.el.find('.Player');
+             playerEl
+                 .addClass('is-moving');*/
+        } else if (playing === true) {
             this.pos.y += delta * 10;
         }
 

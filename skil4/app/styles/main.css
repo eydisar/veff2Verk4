@@ -10,9 +10,37 @@
     /* -webkit-transition: -webkit-transform 3s;*/
 }
 
-.Player.is-moving {
-    -webkit-transform: none;
+.Pipe1 {
+    position: absolute;
+    top: 30em;
+    left: 100%;
+    width: 5em;
+    height: 30em;
+    background: green;
+    border-radius: 1em;
+    transform-origin: top left;
+    animation: slide 6s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-1692px, 0, 0);
+    }
+}
+
+.Pipe2 {
+    position: absolute;
+    top: -10em;
+    left: 100%;
+    width: 5em;
+    height: 30em;
     background: blue;
+    border-radius: 1em;
+    transform-origin: top left;
+    animation: slide 6s linear infinite;
 }
 
 .Player-Wings {

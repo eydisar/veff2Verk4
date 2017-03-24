@@ -9,6 +9,9 @@ window.Game = (function() {
     var Game = function(el) {
         this.el = el;
         this.player = new window.Player(this.el.find('.Player'), this);
+        // this.pipe1 = new window.Player(this.el.find('.Pipe1'), this);
+        //  this.pipe2 = new window.Player(this.el.find('.Pipe2'), this);
+
         this.isPlaying = false;
 
         var fontSize = Math.min(
@@ -38,6 +41,8 @@ window.Game = (function() {
 
         // Update game entities.
         this.player.onFrame(delta);
+        // this.pipe1.onFrame(delta);
+        // this.pipe2.onFrame(delta);
 
         // Request next frame.
         window.requestAnimationFrame(this.onFrame);
@@ -60,6 +65,8 @@ window.Game = (function() {
      */
     Game.prototype.reset = function() {
         this.player.reset();
+        // this.pipe1.reset();
+        // this.pipe2.reset();
     };
 
     /**
