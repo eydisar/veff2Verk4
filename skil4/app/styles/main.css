@@ -149,14 +149,14 @@ body {
     background-image: url('https://secure.static.tumblr.com/019aade9dc009dc51d74af7c9afbc06f/8tyh04b/Z1Cn1f2lv/tumblr_static_tbg.png');
 }
 
-.Ground {
+#Ground {
     position: absolute;
-    top: -10em;
-    left: 100%;
-    width: 5em;
-    height: 30em;
-    background: blue;
+    bottom: 0em;
+    left: 0%;
+    width: 500em;
+    height: 5em;
+    background-image: url('http://www.3dvalley.com/gallery/var/resizes/Textures/sand/sand02.jpg?m=1324238751');
     border-radius: 1em;
     transform-origin: top left;
-    animation: slide linear infinite;
+    animation: slide 10s linear infinite;
 }
