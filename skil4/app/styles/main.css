@@ -151,12 +151,12 @@ body {
 
 #Ground {
     position: absolute;
-    top: -10em;
-    left: 100%;
-    width: 5em;
-    height: 30em;
-    background: blue;
+    bottom: 0em;
+    left: 0%;
+    width: 500em;
+    height: 5em;
+    background-image: url('http://www.3dvalley.com/gallery/var/resizes/Textures/sand/sand02.jpg?m=1324238751');
     border-radius: 1em;
     transform-origin: top left;
-    animation: slide linear infinite;
+    animation: slide 10s linear infinite;
 }
