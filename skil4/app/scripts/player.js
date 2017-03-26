@@ -2,6 +2,7 @@ window.Player = (function() {
     'use strict';
 
     var playing = false;
+    var score = 0;
 
     var Controls = window.Controls;
 
@@ -41,10 +42,6 @@ window.Player = (function() {
         if (Controls.keys.space) {
             playing = true;
             this.pos.y -= delta * SPEED;
-
-            /* var playerEl = this.el.find('.Player');
-             playerEl
-                 .addClass('is-moving');*/
         } else if (playing === true) {
             this.pos.y += delta * 10;
         }
@@ -56,11 +53,39 @@ window.Player = (function() {
     };
 
     Player.prototype.checkCollisionWithBounds = function() {
+
+        var pipe1 = document.getElementById('Collider1');
+        var pipe1Pos = pipe1.getBoundingClientRect();
+        var pipe1X = pipe1Pos.left;
+        var pipe1Y = pipe1Pos.top;
+
+        var pipe2 = document.getElementById('Collider2');
+        var pipe2Pos = pipe2.getBoundingClientRect();
+        var pipe2X = pipe2Pos.left;
+        var pipe2Y = pipe2Pos.top;
+
+        var playerElement = document.getElementById('Player');
+        var playerPosition = playerElement.getBoundingClientRect();
+        var playerX = playerPosition.left;
+        var playerY = playerPosition.top;
+
         if (this.pos.x < 0 ||
             this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
-            this.pos.y < 0 ||
-            this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+            this.pos.y + HEIGHT > this.game.WORLD_HEIGHT ||
+            ((pipe1X < playerX + 10 && pipe1X > playerX - 10) &&
+                pipe1Y < playerY) ||
+            ((pipe2X < playerX + 10 && pipe2X > playerX - 10) &&
+                pipe2Y > playerY)
+        ) {
+
+            playing = false;
+            score = 0;
             return this.game.gameover();
+        } else if ((pipe1X < playerX + 2 && pipe1X > playerX - 2) &&
+            pipe1Y > playerY &&
+            pipe2Y < playerY) {
+            score += 1;
+            console.log('score: ' + score);
         }
     };
 

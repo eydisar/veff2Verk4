@@ -7,7 +7,7 @@
     background: yellow;
     border-radius: 1em;
     /*webkit-transform: translate(0, 40em);*/
-    /* -webkit-transition: -webkit-transform 3s;*/
+    /*-webkit-transition: -webkit-transform 3s;*/
 }
 
 .Pipe1 {
@@ -16,10 +16,33 @@
     left: 100%;
     width: 5em;
     height: 30em;
-    background: green;
+    background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRmbb9vGXdjxPLQC5QLvgBWh6fEhXi_QJqStFdS6fuy9RYTXobe");
     border-radius: 1em;
     transform-origin: top left;
-    animation: slide 6s linear infinite;
+    animation: slide 8s linear infinite;
+}
+
+#Collider1 {
+    /*Colliderinn er -5 em því staðsetningin er miðuð við efri mörk Player (sem er 5em á hæð)*/
+    position: absolute;
+    top: -5em;
+    left: 0;
+    width: 100%;
+    height: 1em;
+    background: pink;
+    transform-origin: top left;
+    /* animation: slide 64s linear infinite;*/
+}
+
+#Collider2 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 1em;
+    background: pink;
+    transform-origin: top left;
+    /* animation: slide 64s linear infinite;*/
 }
 
 @keyframes slide {
@@ -31,7 +54,7 @@
     }
 }
 
-.Pipe2 {
+#Pipe2 {
     position: absolute;
     top: -10em;
     left: 100%;
@@ -40,7 +63,7 @@
     background: blue;
     border-radius: 1em;
     transform-origin: top left;
-    animation: slide 6s linear infinite;
+    animation: slide 8s linear infinite;
 }
 
 .Player-Wings {
