@@ -10,7 +10,7 @@ window.Player = (function() {
     // for 1024x576px canvas.
     var SPEED = 30; // * 10 pixels per second
     var WIDTH = 5;
-    var HEIGHT = 5;
+    //var HEIGHT = 5;
     var INITIAL_POSITION_X = 30;
     var INITIAL_POSITION_Y = 25;
 
@@ -71,7 +71,7 @@ window.Player = (function() {
 
         if (this.pos.x < 0 ||
             this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
-            this.pos.y + HEIGHT > this.game.WORLD_HEIGHT ||
+            this.pos.y /* + HEIGHT */ > this.game.WORLD_HEIGHT ||
             ((pipe1X < playerX + 10 && pipe1X > playerX - 10) &&
                 pipe1Y < playerY) ||
             ((pipe2X < playerX + 10 && pipe2X > playerX - 10) &&
@@ -79,13 +79,13 @@ window.Player = (function() {
         ) {
 
             playing = false;
+            var tempScore = score;
             score = 0;
-            return this.game.gameover();
-        } else if ((pipe1X < playerX + 2 && pipe1X > playerX - 2) &&
+            return this.game.gameover(tempScore);
+        } else if ((pipe1X < playerX + 1.8 && pipe1X > playerX - 1.8) &&
             pipe1Y > playerY &&
             pipe2Y < playerY) {
             score += 1;
-            console.log('score: ' + score);
         }
     };
 

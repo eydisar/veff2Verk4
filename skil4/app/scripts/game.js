@@ -9,8 +9,17 @@ window.Game = (function() {
     var Game = function(el) {
         this.el = el;
         this.player = new window.Player(this.el.find('.Player'), this);
-        // this.pipe1 = new window.Player(this.el.find('.Pipe1'), this);
-        //  this.pipe2 = new window.Player(this.el.find('.Pipe2'), this);
+        this.pipe1 = this.el.find('.Pipe1');
+        this.pipe2 = this.el.find('.Pipe2');
+
+        var pipe1 = document.getElementById('Collider1');
+        var pipe1Pos = pipe1.getBoundingClientRect();
+
+        var pipe2 = document.getElementById('Collider2');
+        var pipe2Pos = pipe2.getBoundingClientRect();
+
+        this.pipe1.css('transform', 'translateZ(0) translate(' + pipe1Pos.left + 'em, ' + pipe1Pos.right + 'em)');
+        this.pipe1.css('transform', 'translateZ(0) translate(' + pipe2Pos.left + 'em, ' + pipe2Pos.right + 'em)');
 
         this.isPlaying = false;
 
@@ -72,8 +81,9 @@ window.Game = (function() {
     /**
      * Signals that the game is over.
      */
-    Game.prototype.gameover = function() {
+    Game.prototype.gameover = function(score) {
         this.isPlaying = false;
+        document.getElementById('score').innerText = score;
 
         // Should be refactored into a Scoreboard class.
         var that = this;
