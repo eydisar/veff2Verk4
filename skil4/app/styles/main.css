@@ -148,3 +148,15 @@ body {
     overflow: hidden;
     background-image: url('https://secure.static.tumblr.com/019aade9dc009dc51d74af7c9afbc06f/8tyh04b/Z1Cn1f2lv/tumblr_static_tbg.png');
 }
+
+.Ground {
+    position: absolute;
+    top: -10em;
+    left: 100%;
+    width: 5em;
+    height: 30em;
+    background: blue;
+    border-radius: 1em;
+    transform-origin: top left;
+    animation: slide linear infinite;
+}
