@@ -64,6 +64,11 @@ window.Player = (function() {
         var pipe2X = pipe2Pos.left;
         var pipe2Y = pipe2Pos.top;
 
+        var ground = document.getElementById('Ground');
+        var groundPos = ground.getBoundingClientRect();
+        var groundX = groundPos.left;
+        var groundY = groundPos.top;
+
         var playerElement = document.getElementById('Player');
         var playerPosition = playerElement.getBoundingClientRect();
         var playerX = playerPosition.left;
