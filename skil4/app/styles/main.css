@@ -6,8 +6,8 @@
     height: 5em;
     background: yellow;
     border-radius: 1em;
-    /*webkit-transform: translate(0, 40em);*/
-    /*-webkit-transition: -webkit-transform 3s;*/
+    webkit-transform: translate(0, 40em);
+    /* -webkit-transition: -webkit-transform 3s;*/
 }
 
 .Pipe1 {
@@ -149,7 +149,7 @@ body {
     background-image: url('https://secure.static.tumblr.com/019aade9dc009dc51d74af7c9afbc06f/8tyh04b/Z1Cn1f2lv/tumblr_static_tbg.png');
 }
 
-.Ground {
+#Ground {
     position: absolute;
     top: -10em;
     left: 100%;

@@ -10,7 +10,7 @@ window.Player = (function() {
     // for 1024x576px canvas.
     var SPEED = 30; // * 10 pixels per second
     var WIDTH = 5;
-    //var HEIGHT = 5;
+    var HEIGHT = 5;
     var INITIAL_POSITION_X = 30;
     var INITIAL_POSITION_Y = 25;
 
@@ -64,10 +64,10 @@ window.Player = (function() {
         var pipe2X = pipe2Pos.left;
         var pipe2Y = pipe2Pos.top;
 
-        var ground = document.getElementById('Ground');
-        var groundPos = ground.getBoundingClientRect();
-        var groundX = groundPos.left;
-        var groundY = groundPos.top;
+        // var ground = document.getElementById('Ground');
+        // var groundPos = ground.getBoundingClientRect();
+        // var groundX = groundPos.left;
+        // var groundY = groundPos.top;
 
         var playerElement = document.getElementById('Player');
         var playerPosition = playerElement.getBoundingClientRect();
@@ -76,7 +76,7 @@ window.Player = (function() {
 
         if (this.pos.x < 0 ||
             this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
-            this.pos.y /* + HEIGHT */ > this.game.WORLD_HEIGHT ||
+            this.pos.y + (HEIGHT * 2) > this.game.WORLD_HEIGHT ||
             ((pipe1X < playerX + 10 && pipe1X > playerX - 10) &&
                 pipe1Y < playerY) ||
             ((pipe2X < playerX + 10 && pipe2X > playerX - 10) &&
