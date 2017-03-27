@@ -6,8 +6,21 @@
     height: 5em;
     background: yellow;
     border-radius: 1em;
-    /*webkit-transform: translate(0, 40em);*/
-    /*-webkit-transition: -webkit-transform 3s;*/
+    webkit-transform: translate(0, 40em);
+    /* -webkit-transition: -webkit-transform 3s;*/
+}
+
+
+/*.Pipes2 {
+    position: absolute;
+    top: 0em;
+    left: 120%;
+    width: 5em;
+    height: 30em;
+    background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRmbb9vGXdjxPLQC5QLvgBWh6fEhXi_QJqStFdS6fuy9RYTXobe");
+    border-radius: 1em;
+    transform-origin: top left;
+    animation: slide 0s linear infinite;
 }
 
 .Pipe1 {
@@ -22,17 +35,25 @@
     animation: slide 8s linear infinite;
 }
 
-#Collider1 {
-    /*Colliderinn er -5 em því staðsetningin er miðuð við efri mörk Player (sem er 5em á hæð)*/
-    position: absolute;
+#Collider1 {*/
+
+
+/*Colliderinn er -5 em því staðsetningin er miðuð við efri mörk Player (sem er 5em á hæð)*/
+
+
+/* position: absolute;
     top: -5em;
     left: 0;
     width: 100%;
     height: 1em;
     background: pink;
-    transform-origin: top left;
-    /* animation: slide 64s linear infinite;*/
-}
+    transform-origin: top left;*/
+
+
+/* animation: slide 64s linear infinite;*/
+
+
+/*}
 
 #Collider2 {
     position: absolute;
@@ -43,7 +64,9 @@
     background: pink;
     transform-origin: top left;
     /* animation: slide 64s linear infinite;*/
-}
+
+
+/*}
 
 @keyframes slide {
     0% {
@@ -54,7 +77,7 @@
     }
 }
 
-#Pipe2 {
+.Pipe2 {
     position: absolute;
     top: -10em;
     left: 100%;
@@ -64,6 +87,27 @@
     border-radius: 1em;
     transform-origin: top left;
     animation: slide 8s linear infinite;
+}*/
+
+.Score {
+    position: absolute;
+    top: 10;
+    left: 50%;
+    width: 5em;
+    height: 5em;
+}
+
+.Pipe1,
+.Pipe2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12em;
+    height: 92em;
+    background: blue;
+    /* background-image: url('../images/pipes.png');*/
+    background-image: url('https://sites.google.com/site/zieglerscratch/_/rsrc/1472878134063/flappy-bird/mariopipe3.png');
+    background-size: 12em 92em;
 }
 
 .Player-Wings {
@@ -111,7 +155,7 @@
 }
 
 .Scoreboard-restart {
-    margin-top: 20em;
+    margin-top: 8em;
     font-size: inherit;
     padding: 0.4em 1.5em;
     border: 0.2em solid white;
@@ -150,16 +194,13 @@ body {
     background-size: 108em, 57.6em;
 }
 
-#Ground {
+.Ground {
     position: absolute;
     bottom: 0em;
     left: 0%;
     width: 500em;
     height: 3em;
     background-image: url('http://www.3dvalley.com/gallery/var/resizes/Textures/sand/sand02.jpg?m=1324238751');
-    border-radius: 1em;
-    transform-origin: top left;
-    animation: slide 8s linear infinite;
 }
 
 #Star {

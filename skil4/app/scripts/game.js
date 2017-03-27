@@ -6,17 +6,24 @@ window.Game = (function() {
      * @param {Element} el jQuery element containing the game.
      * @constructor
      */
+
+    var controls = window.Controls;
     var Game = function(el) {
         this.el = el;
         this.player = new window.Player(this.el.find('.Player'), this);
-        // this.pipe1 = new window.Player(this.el.find('.Pipe1'), this);
-        //  this.pipe2 = new window.Player(this.el.find('.Pipe2'), this);
+        this.pipe1 = new window.Pipes(this.el.find('.Pipe1'), this, 1);
+        this.pipe2 = new window.Pipes(this.el.find('.Pipe2'), this, 2);
+        this.ground = new window.Ground(this.el.find('.Ground'), this);
+        //this.pipe3 = new window.Pipes(this.el.find('.Pipes3'), this, 2);
 
         this.isPlaying = false;
+        this.score = 0;
 
         var fontSize = Math.min(
-            window.innerWidth / 102.4,
-            window.innerHeight / 57.6
+            window.innerWidth / 50,
+            window.innerHeight / 75
+            //window.innerWidth / 102.4,
+            //window.innerHeight / 57.6
         );
         el.css('fontSize', fontSize + 'px');
 
@@ -33,6 +40,9 @@ window.Game = (function() {
         if (!this.isPlaying) {
             return;
         }
+        if (controls.keys.space) {
+            this.isPlaying = true;
+        }
 
         // Calculate how long since last frame in seconds.
         var now = +new Date() / 1000,
@@ -40,9 +50,10 @@ window.Game = (function() {
         this.lastFrame = now;
 
         // Update game entities.
-        this.player.onFrame(delta);
-        // this.pipe1.onFrame(delta);
-        // this.pipe2.onFrame(delta);
+        this.player.onFrame(delta, this.isPlaying);
+        this.pipe1.onFrame(delta, this.isPlaying);
+        this.pipe2.onFrame(delta, this.isPlaying);
+        this.ground.onFrame(delta, this.isPlaying);
 
         // Request next frame.
         window.requestAnimationFrame(this.onFrame);
@@ -65,8 +76,9 @@ window.Game = (function() {
      */
     Game.prototype.reset = function() {
         this.player.reset();
-        // this.pipe1.reset();
-        // this.pipe2.reset();
+        this.pipe1.reset();
+        this.pipe2.reset();
+        this.isPlaying = false;
     };
 
     /**
@@ -90,8 +102,10 @@ window.Game = (function() {
     /**
      * Some shared constants.
      */
-    Game.prototype.WORLD_WIDTH = 102.4;
-    Game.prototype.WORLD_HEIGHT = 57.6;
+    // Game.prototype.WORLD_WIDTH = 102.4;
+    //Game.prototype.WORLD_HEIGHT = 57.6;
+    Game.prototype.WORLD_WIDTH = 40;
+    Game.prototype.WORLD_HEIGHT = 70;
 
     return Game;
 })();

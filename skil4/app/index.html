@@ -32,19 +32,20 @@
         <div class="Player" id="Player">
             <div class="Player-Wings"></div>
         </div>
-        <div class="Pipes">
-            <div class="Pipe1">
-                <div id="Collider1"></div>
-            </div>
-            <div id="Pipe2">
-                <div id="Collider2"></div>
-            </div>
+        <div class="Score">
+            <span id="Score"></span>
         </div>
-        <div id="Ground"></div>
+        <div class="Pipe1"></div>
+        <div class="Pipe2"></div>
+        <div class="Ground"></div>
         <div id="Star"></div>
         <div id="Bubble"></div>
 
         <div class="Scoreboard">
+            <p class="Scoreboard-restartText">Game Over</p>
+            <div class="Scoreboard-restartText">Score:
+                <span class="Scoreboard-restartText" id="score"></span>
+            </div>
             <button class="Scoreboard-restart">
                     <span class="Scoreboard-restartText">Restart</span>
                 </button>
@@ -63,8 +64,10 @@
     <script src="scripts/main.js"></script>
     <script src="scripts/controls.js"></script>
     <script src="scripts/game.js"></script>
+    <script src="scripts/pipes.js"></script>
     <script src="scripts/player.js"></script>
     <script src="scripts/utils.js"></script>
+    <script src="scripts/ground.js"></script>
     <!-- endbuild -->
 </body>
 
