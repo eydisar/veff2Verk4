@@ -103,11 +103,10 @@
     top: 0;
     left: 0;
     width: 12em;
-    height: 92em;
-    background: blue;
+    height: 50em;
     /* background-image: url('../images/pipes.png');*/
     background-image: url('https://sites.google.com/site/zieglerscratch/_/rsrc/1472878134063/flappy-bird/mariopipe3.png');
-    background-size: 12em 92em;
+    background-size: 12em 50em;
 }
 
 .Player-Wings {
