@@ -189,17 +189,59 @@ body {
     margin-left: -51.2em;
     margin-top: -28.8em;
     overflow: hidden;
-    background-image: url('https://secure.static.tumblr.com/019aade9dc009dc51d74af7c9afbc06f/8tyh04b/Z1Cn1f2lv/tumblr_static_tbg.png');
+    background-image: url('https://s-media-cache-ak0.pinimg.com/736x/dd/f5/a7/ddf5a7c3248d3c9b6a562cb523f2debf.jpg');
+    background-size: 108em, 57.6em;
 }
 
-#Ground {
+.Ground {
     position: absolute;
     bottom: 0em;
     left: 0%;
     width: 500em;
     height: 3em;
     background-image: url('http://www.3dvalley.com/gallery/var/resizes/Textures/sand/sand02.jpg?m=1324238751');
+}
+
+#Star {
+    position: absolute;
+    bottom: 10em;
+    left: -1%;
+    width: 3em;
+    height: 2.8em;
+    background-image: url('https://img.clipartfest.com/6f3767d3c29e7772ff99a42c8f3b5221_starfish20clipart-cartoon-starfish-clipart_2400-2208.png');
+    background-size: 3em;
     border-radius: 1em;
     transform-origin: top left;
-    animation: slide 8s linear infinite;
+    animation: swim 20s linear infinite;
+}
+
+@keyframes swim {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(169em, 0, 0);
+    }
+}
+
+#Bubble {
+    position: absolute;
+    bottom: 3em;
+    left: 50%;
+    width: 2em;
+    height: 4em;
+    background-image: url('https://img.clipartfox.com/3af0f1334970c28ccc3b2e6ffb15dfa0_bubbles-clip-art-at-clker-com-water-bubble-clipart_294-599.png');
+    background-size: 2em;
+    border-radius: 1em;
+    transform-origin: top left;
+    animation: float 20s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-169em, -169em, 0);
+    }
 }

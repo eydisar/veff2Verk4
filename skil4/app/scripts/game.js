@@ -13,6 +13,7 @@ window.Game = (function() {
         this.player = new window.Player(this.el.find('.Player'), this);
         this.pipe1 = new window.Pipes(this.el.find('.Pipe1'), this, 1);
         this.pipe2 = new window.Pipes(this.el.find('.Pipe2'), this, 2);
+        this.ground = new window.Ground(this.el.find('.Ground'), this);
         //this.pipe3 = new window.Pipes(this.el.find('.Pipes3'), this, 2);
 
         this.isPlaying = false;
@@ -52,6 +53,7 @@ window.Game = (function() {
         this.player.onFrame(delta, this.isPlaying);
         this.pipe1.onFrame(delta, this.isPlaying);
         this.pipe2.onFrame(delta, this.isPlaying);
+        this.ground.onFrame(delta, this.isPlaying);
 
         // Request next frame.
         window.requestAnimationFrame(this.onFrame);
