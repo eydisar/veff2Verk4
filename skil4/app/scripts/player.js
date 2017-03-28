@@ -35,7 +35,7 @@ window.Player = (function() {
                 playing = true;
                 this.pos.y -= delta * SPEED;
             } else if (playing === true) {
-                this.pos.y += delta * 10;
+                this.pos.y += delta * 13;
             }
         }
         this.checkCollisionWithBounds();

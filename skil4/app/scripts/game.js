@@ -9,27 +9,13 @@ window.Game = (function() {
 
     var controls = window.Controls;
     var Game = function(el) {
+        this.highScore = 0;
 
-
-        //var start = false;
-
-        /* startEl
-             .addClass('is-visible')
-             .find('.Start');
-         if (controls.keys.space) {
-             startEl.removeClass('is-visible');
-             this.start();
-         }*/
         this.el = el;
         this.player = new window.Player(this.el.find('.Player'), this);
         this.pipe1 = new window.Pipes(this.el.find('.Pipes1'), this, 1);
         this.pipe2 = new window.Pipes(this.el.find('.Pipes2'), this, 2);
         this.ground = new window.Ground(this.el.find('.Ground'), this);
-        //this.pipe3 = new window.Pipes(this.el.find('.Pipes3'), this, 2);
-
-        // var startEl = this.el.find('.Start');
-
-
 
         this.isPlaying = false;
         this.score = 0;
@@ -65,10 +51,10 @@ window.Game = (function() {
         this.lastFrame = now;
 
         // Update game entities.
-        this.player.onFrame(delta, this.isPlaying);
-        this.pipe1.onFrame(delta, this.isPlaying);
-        this.pipe2.onFrame(delta, this.isPlaying);
-        this.ground.onFrame(delta, this.isPlaying);
+        this.player.onFrame(delta);
+        this.pipe1.onFrame(delta);
+        this.pipe2.onFrame(delta);
+        this.ground.onFrame(delta);
 
         // Request next frame.
         window.requestAnimationFrame(this.onFrame);
@@ -101,6 +87,10 @@ window.Game = (function() {
      */
     Game.prototype.gameover = function() {
         this.isPlaying = false;
+        if (this.score > this.highScore) {
+            this.highScore = this.score;
+            document.getElementById('HighScore').innerText = this.highScore;
+        }
 
         // Should be refactored into a Scoreboard class.
         var that = this;
