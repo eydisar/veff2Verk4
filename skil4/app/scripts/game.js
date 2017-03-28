@@ -51,12 +51,12 @@ window.Game = (function() {
         }
         if (controls.keys.space) {
             this.isPlaying = true;
-            $('.Player').css('background', 'url(../images/SealSwim.png)');
+            $('.Player').css('background', 'url(../images/SealSwim.png) no-repeat');
             $('.Player').css('background-size', '10em');
         }
         else{
-             $('.Player').css('background', 'url(../images/SealSink.png)');
-             $('.Player').css('background-size', '11.6em');
+             $('.Player').css('background', 'url(../images/SealSink.png) no-repeat');
+             $('.Player').css('background-size', '10em');
         }
 
         if (this.song.muted === false) {
@@ -133,8 +133,8 @@ window.Game = (function() {
             document.getElementById('HighScore').innerText = this.highScore;
         }
 
-        $('.Player').css('background', 'url(../images/SealFall.png)');
-        $('.Player').css('background-size', '10em');
+        $('.Player').css('background', 'url(../images/SealFall.png) no-repeat');
+        $('.Player').css('background-size', '8em');
 
         // Should be refactored into a Scoreboard class.
         var that = this;

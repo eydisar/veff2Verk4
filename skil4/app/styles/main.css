@@ -5,8 +5,9 @@
     width: 10em;
     height: 5em;
     background: url('../images/SealSwim.png');
-    background-size: 5em; 
-    webkit-transform: translate(0, 40em);
+    background-size: 10em; 
+    background-repeat: none;
+    -webkit-transform: translate(0, 40em);
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -138,27 +139,6 @@
     /* background-image: url('../images/pipes.png');*/
     background-image: url('http://flappycreator.com/default/tube2.png');
     background-size: 10em 50em;
-}
-
-/*.Player-Wings {
-    position: absolute;
-    left: 0.25em;
-    top: 0.4em;
-    height: 2em;
-    width: 3em;
-    border-radius: 10px;
-    background-color: orangered;
-    transform-origin: top left;
-    animation: flap 0.4s infinite;
-}*/
-
-@keyframes Swim {
-    from {
-        background: url('../images/Seal.png') bottom;
-    }
-    to {
-        background: url('../images/Seal.png') top;
-    }
 }
 
 .Scoreboard,
