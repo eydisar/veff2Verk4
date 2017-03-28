@@ -51,20 +51,19 @@ window.Game = (function() {
         }
         if (controls.keys.space) {
             this.isPlaying = true;
-<<<<<<< HEAD
             $('.Player').css('background', 'url(../images/SealSwim.png)');
             $('.Player').css('background-size', '10em');
         }
         else{
              $('.Player').css('background', 'url(../images/SealSink.png)');
              $('.Player').css('background-size', '11.6em');
-=======
-            if (this.song.muted === false) {
-                this.swoosh.play();
-            }
-            $('#Player').addClass('rotated');
->>>>>>> acc31f06580638788f4afd1dc9313610272d0f57
         }
+
+        if (this.song.muted === false) {
+            this.swoosh.play();
+        }
+        $('#Player').addClass('rotated');
+        
         var song = this.song;
 
         $('#mute').click(function() {
