@@ -57,6 +57,12 @@ window.Game = (function() {
         }
         if (controls.keys.space) {
             this.isPlaying = true;
+            $('.Player').css('background', 'url(../images/SealSwim.png)');
+            $('.Player').css('background-size', '10em');
+        }
+        else{
+             $('.Player').css('background', 'url(../images/SealSink.png)');
+             $('.Player').css('background-size', '11.6em');
         }
 
         // Calculate how long since last frame in seconds.
@@ -101,6 +107,9 @@ window.Game = (function() {
      */
     Game.prototype.gameover = function() {
         this.isPlaying = false;
+
+        $('.Player').css('background', 'url(../images/SealFall.png)');
+        $('.Player').css('background-size', '10em');
 
         // Should be refactored into a Scoreboard class.
         var that = this;
