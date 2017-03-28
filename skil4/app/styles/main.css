@@ -2,10 +2,10 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 5em;
+    width: 10em;
     height: 5em;
-    background: yellow;
-    border-radius: 1em;
+    background: url('../images/SealSwim.png');
+    background-size: 5em; 
     webkit-transform: translate(0, 40em);
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -61,7 +61,7 @@
     background-size: 10em 50em;
 }
 
-.Player-Wings {
+/*.Player-Wings {
     position: absolute;
     left: 0.25em;
     top: 0.4em;
@@ -71,14 +71,14 @@
     background-color: orangered;
     transform-origin: top left;
     animation: flap 0.4s infinite;
-}
+}*/
 
-@keyframes flap {
+@keyframes Swim {
     from {
-        transform: rotateX(0);
+        background: url('../images/Seal.png') bottom;
     }
     to {
-        transform: rotateX(180deg);
+        background: url('../images/Seal.png') top;
     }
 }
 
