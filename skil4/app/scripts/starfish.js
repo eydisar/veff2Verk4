@@ -2,9 +2,7 @@ window.Starfish = (function() {
     'use strict';
 
     var INITIAL_POSITION_X = 60;
-    var Width = 30;
-    var height = 28;
-    var SPEED = 10;
+    var SPEED = 15;
 
     var Starfish = function(el, game) {
         this.el = el;

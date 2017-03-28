@@ -10,9 +10,16 @@ window.Game = (function() {
     var controls = window.Controls;
     var Game = function(el) {
 
-        this.song = new Audio('../audio/bensound-extremeaction.mp3');
+        this.song = new Audio('../audio/AllOutOfLuck.mp3');
         this.song.play();
-        this.swoosh = new Audio('../audio/flyby-Conor-1500306612.mp3');
+        this.swoosh = new Audio('../audio/Swoosh.mp3');
+
+        this.playSwoosh = function() {
+            this.swoosh.load();
+            this.swoosh.play();
+
+            //this.swoosh.play();
+        };
 
         this.highScore = 0;
 
@@ -23,7 +30,11 @@ window.Game = (function() {
         this.ground = new window.Ground(this.el.find('.Ground'), this);
         this.bubble1 = new window.Bubbles(this.el.find('.Bubble1'), this);
         this.bubble2 = new window.Bubbles(this.el.find('.Bubble2'), this);
-        this.starfish = new window.Starfish(this.el.find('.Starfish'), this)
+        this.jelly1 = new window.Bubbles(this.el.find('.Jelly1'), this);
+        this.starfish = new window.Starfish(this.el.find('.Starfish'), this);
+        this.fish1 = new window.Fish(this.el.find('.Fish1'), this);
+        this.turtle1 = new window.Turtle(this.el.find('.Turtle1'), this);
+
 
         this.isPlaying = false;
         this.score = 0;
@@ -49,21 +60,26 @@ window.Game = (function() {
         if (!this.isPlaying) {
             return;
         }
+
+        //The image changes and the player is rotated in the direction it is headed
         if (controls.keys.space) {
             this.isPlaying = true;
             $('.Player').css('background', 'url(../images/SealSwim.png) no-repeat');
             $('.Player').css('background-size', '10em');
+            this.player.rotation = 5;
         }
         else{
              $('.Player').css('background', 'url(../images/SealSink.png) no-repeat');
              $('.Player').css('background-size', '10em');
-        }
+            this.player.rotation = -0.5;
+            if (this.song.muted === false) {
+                this.playSwoosh();
+            }
+        } 
 
-        if (this.song.muted === false) {
-            this.swoosh.play();
-        }
+
         $('#Player').addClass('rotated');
-        
+
         var song = this.song;
 
         $('#mute').click(function() {
@@ -88,7 +104,10 @@ window.Game = (function() {
         this.ground.onFrame(delta);
         this.bubble1.onFrame(delta);
         this.bubble2.onFrame(delta);
+        this.jelly1.onFrame(delta);
         this.starfish.onFrame(delta);
+        this.fish1.onFrame(delta);
+        this.turtle1.onFrame(delta);
 
         // Request next frame.
         window.requestAnimationFrame(this.onFrame);
@@ -115,7 +134,10 @@ window.Game = (function() {
         this.pipe2.reset();
         this.bubble1.reset();
         this.bubble2.reset();
+        this.jelly1.reset();
         this.starfish.reset();
+        this.fish1.reset();
+        this.turtle1.reset();
         this.isPlaying = false;
     };
 
@@ -124,7 +146,7 @@ window.Game = (function() {
      */
     Game.prototype.gameover = function() {
         if (this.song.muted === false) {
-            var audio = new Audio('../audio/9_mm_gunshot-mike-koenig-123.mp3');
+            var audio = new Audio('../audio/Splat.mp3');
             audio.play();
         }
         this.isPlaying = false;

@@ -18,6 +18,7 @@ window.Player = (function() {
         this.el = el;
         this.game = game;
         this.pos = { x: 0, y: 0 };
+        this.rotation = 0;
     };
 
     /**
@@ -34,6 +35,7 @@ window.Player = (function() {
             if (Controls.keys.space) {
                 playing = true;
                 this.pos.y -= delta * SPEED;
+                // this.rotation -= delta * SPEED;
             } else if (playing === true) {
                 this.pos.y += delta * 13;
             }
@@ -41,7 +43,7 @@ window.Player = (function() {
         this.checkCollisionWithBounds();
 
         // Update UI
-        this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+        this.el.css('transform', 'rotate(' + (this.rotation) + 'deg) translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
     };
 
     Player.prototype.checkCollisionWithBounds = function() {

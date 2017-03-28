@@ -15,90 +15,12 @@
     /* -webkit-transition: -webkit-transform 3s;*/
 }
 
-.rotated {
+
+/*.rotated {
     transform: rotate(25deg);
     -webkit-transform: rotate(25deg);
     -moz-transform: rotate(25deg);
     -o-transform: rotate(25deg);
-}
-
-
-/*.Pipes2 {
-    position: absolute;
-    top: 0em;
-    left: 120%;
-    width: 5em;
-    height: 30em;
-    background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRmbb9vGXdjxPLQC5QLvgBWh6fEhXi_QJqStFdS6fuy9RYTXobe");
-    border-radius: 1em;
-    transform-origin: top left;
-    animation: slide 0s linear infinite;
-}
-
-.Pipe1 {
-    position: absolute;
-    top: 30em;
-    left: 100%;
-    width: 5em;
-    height: 30em;
-    background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRmbb9vGXdjxPLQC5QLvgBWh6fEhXi_QJqStFdS6fuy9RYTXobe");
-    border-radius: 1em;
-    transform-origin: top left;
-    animation: slide 8s linear infinite;
-}
-
-#Collider1 {*/
-
-
-/*Colliderinn er -5 em því staðsetningin er miðuð við efri mörk Player (sem er 5em á hæð)*/
-
-
-/* position: absolute;
-    top: -5em;
-    left: 0;
-    width: 100%;
-    height: 1em;
-    background: pink;
-    transform-origin: top left;*/
-
-
-/* animation: slide 64s linear infinite;*/
-
-
-/*}
-
-#Collider2 {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 1em;
-    background: pink;
-    transform-origin: top left;
-    /* animation: slide 64s linear infinite;*/
-
-
-/*}
-
-@keyframes slide {
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-    100% {
-        transform: translate3d(-1692px, 0, 0);
-    }
-}
-
-.Pipe2 {
-    position: absolute;
-    top: -10em;
-    left: 100%;
-    width: 5em;
-    height: 30em;
-    background: blue;
-    border-radius: 1em;
-    transform-origin: top left;
-    animation: slide 8s linear infinite;
 }*/
 
 #Score {
@@ -132,7 +54,7 @@
 
 .Pipe2 {
     position: absolute;
-    top: 125%;
+    top: 130%;
     left: 0;
     width: 10em;
     height: 50em;
@@ -145,12 +67,14 @@
 .Start {
     position: absolute;
     left: 50%;
-    top: 10em;
-    height: 30em;
+    top: 0em;
+    height: 40em;
     width: 40em;
     margin-left: -20em;
     box-sizing: border-box;
-    background: purple;
+    background: transparent;
+    background-image: url('http://img.clipartall.com/tiny-bubble-clip-art-bubble-clip-art-300_300.png');
+    background-size: 40em;
     text-align: center;
     -webkit-transform: translate(0, -40em);
     -webkit-transition: -webkit-transform 0.5s;
@@ -163,33 +87,39 @@
 
 .Scoreboard.is-visible,
 .Start.is-visible {
+    top: 10em;
     -webkit-transform: none;
 }
 
 .Scoreboard-restart {
     margin-top: 5em;
-    font-size: inherit;
+    font-size: 1.5em;
     padding: 0.4em 1.5em;
-    border: 0.2em solid white;
+    border: 0.2em solid dimgrey;
     background: none;
     cursor: pointer;
 }
 
 .Scoreboard-restartText,
 .Score {
-    font-family: 'Comic Sans MS', serif;
+    padding-top: 1em;
+    font-family: 'Lucida Console', serif;
     font-size: 2em;
-    color: white;
+    color: dimgray;
+}
+
+.StartText {
+    padding-top: 5em;
+    font-family: 'Lucida Console', serif;
+    font-size: 2em;
+    color: dimgray;
 }
 
 .Start {
-    font-family: 'Comic Sans MS', serif;
-    font-size: 2.4em;
-    color: white;
-    margin-left: -10em;
-    width: 20em;
-    height: 8em;
-    z-index: 1000;
+    font-family: 'Lucida Console', serif;
+    font-size: 1em;
+    color: dimgray;
+    z-index: 100;
 }
 
 #mute {
@@ -201,7 +131,7 @@
     width: 3em;
     height: 3em;
     font-size: 1.6em;
-    background-image: url('http://www.iconarchive.com/download/i91178/icons8/windows-8/Media-Controls-Mute.ico');
+    background-image: url('https://maxcdn.icons8.com/Android_L/PNG/512/Media_Controls/medium_volume-512.png');
     background-size: 3em;
     z-index: 1000;
 }
@@ -229,8 +159,9 @@ body {
     margin-left: -25em;
     margin-top: -36em;
     overflow: hidden;
-    background-image: url('https://s-media-cache-ak0.pinimg.com/736x/dd/f5/a7/ddf5a7c3248d3c9b6a562cb523f2debf.jpg');
-    background-size: 108em, 57.6em;
+    background-image: url('http://pre11.deviantart.net/a978/th/pre/f/2011/250/e/e/undersea_bubbles_by_toonham-d496uzo.jpg');
+    /* background-image: url('https://s-media-cache-ak0.pinimg.com/736x/dd/f5/a7/ddf5a7c3248d3c9b6a562cb523f2debf.jpg');*/
+    background-size: 50em, 100%;
     z-index: -1000;
 }
 
@@ -265,12 +196,32 @@ body {
     background-size: 4em;
 }
 
-.Turtle {
+.Turtle1 {
     position: absolute;
-    bottom: 3em;
-    left: 50%;
-    width: 4em;
+    bottom: 40em;
+    left: -1%;
+    width: 8em;
     height: 8em;
     background-image: url('https://img.clipartfest.com/c75478d789ab728229079443def48e49_09c662d9633ad9ac3a1b5f88e89775-sea-turtle-clipart-transparent-background_432-432.png');
+    background-size: 8em;
+}
+
+.Fish1 {
+    position: absolute;
+    bottom: 40em;
+    left: -1%;
+    width: 8em;
+    height: 7em;
+    background-image: url('https://img.clipartfox.com/55587b4d443b6c2880b8cf65471db779_fish-clip-art-image-555-cute-fish-clipart-no-background_592-559.png');
+    background-size: 8em;
+}
+
+.Jelly1 {
+    position: absolute;
+    bottom: -10em;
+    left: 150%;
+    width: 6em;
+    height: 7em;
+    background-image: url('https://img.clipartfest.com/5a51fb603fab321765b196504fcc9e20_jellyfish20clip20art-cute-fish-clipart-no-background_1969-2750.png');
     background-size: 6em;
 }
