@@ -10,11 +10,9 @@ window.Ground = (function() {
         this.pos = { x: 0, y: 0 };
     };
 
-    Ground.prototype.onFrame = function(delta, isPlaying) {
+    Ground.prototype.onFrame = function(delta) {
 
-        console.log('Im here');
-
-        if (isPlaying) {
+        if (this.game.isPlaying) {
             this.pos.x -= delta * SPEED;
         }
 
