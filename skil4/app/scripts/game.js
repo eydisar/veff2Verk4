@@ -66,7 +66,7 @@ window.Game = (function() {
             $('.Player').css('background-position', '-1em -0.5em');
 
             this.player.rotation = -0.5;
-            if (this.song.muted === false) {
+            if (this.swoosh.muted === false) {
                 this.playSwoosh();
             }
         } else {
@@ -76,14 +76,25 @@ window.Game = (function() {
         }
 
         var song = this.song;
+        var swoosh = this.swoosh;
 
-        $('#mute').click(function() {
+        $('#muteSong').click(function() {
             if (song.muted === true) {
                 song.muted = false;
-                $('#mute').css('background-image', 'url(https://maxcdn.icons8.com/Android_L/PNG/512/Media_Controls/medium_volume-512.png)');
+                $('#muteSong').css('background-image', 'url(https://maxcdn.icons8.com/Android_L/PNG/512/Media_Controls/medium_volume-512.png)');
             } else {
                 song.muted = true;
-                $('#mute').css('background-image', 'url(http://www.iconarchive.com/download/i91178/icons8/windows-8/Media-Controls-Mute.ico)');
+                $('#muteSong').css('background-image', 'url(http://www.iconarchive.com/download/i91178/icons8/windows-8/Media-Controls-Mute.ico)');
+            }
+        });
+
+        $('#muteSE').click(function() {
+            if (swoosh.muted === true) {
+                swoosh.muted = false;
+                $('#muteSE').css('background-image', 'url(https://maxcdn.icons8.com/Android_L/PNG/512/Media_Controls/medium_volume-512.png)');
+            } else {
+                swoosh.muted = true;
+                $('#muteSE').css('background-image', 'url(http://www.iconarchive.com/download/i91178/icons8/windows-8/Media-Controls-Mute.ico)');
             }
         });
 
@@ -141,7 +152,7 @@ window.Game = (function() {
      * Signals that the game is over.
      */
     Game.prototype.gameover = function() {
-        if (this.song.muted === false) {
+        if (this.swoosh.muted === false) {
             var audio = new Audio('../audio/Splat.mp3');
             audio.play();
         }
