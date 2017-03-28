@@ -6,7 +6,6 @@ window.Pipes = (function() {
     var SPEED = 20; // * 10 pixels per second
     var WIDTH = 15;
     var INITIAL_POSITION_X = 50;
-    var INITIAL_POSITION_Y = -30;
     var throughPipe = false;
     // var outsideBounds = false;
     var barrier = 40;
@@ -29,7 +28,7 @@ window.Pipes = (function() {
         } else {
             this.pos.x = INITIAL_POSITION_X + 30;
         }
-        this.pos.y = INITIAL_POSITION_Y;
+        this.pos.y = Math.random() * (-20 - (-40)) + (-40);
     };
 
     Pipes.prototype.onFrame = function(delta) {
@@ -41,8 +40,7 @@ window.Pipes = (function() {
         if (this.pos.x < negativeWidth) {
             this.pos.x = INITIAL_POSITION_X;
 
-            var randStartArr = [-40, -35, -30, -25, -20];
-            var rand = randStartArr[Math.floor(Math.random() * randStartArr.length)];
+            var rand = Math.random() * (-20 - (-40)) + (-40);
             this.pos.y = rand;
         }
 

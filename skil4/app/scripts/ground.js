@@ -13,6 +13,7 @@ window.Ground = (function() {
     Ground.prototype.onFrame = function(delta) {
 
         if (this.game.isPlaying) {
+
             this.pos.x -= delta * SPEED;
         }
 

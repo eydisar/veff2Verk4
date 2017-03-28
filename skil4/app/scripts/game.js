@@ -10,26 +10,20 @@ window.Game = (function() {
     var controls = window.Controls;
     var Game = function(el) {
 
+        this.song = new Audio('../audio/bensound-extremeaction.mp3');
+        this.song.play();
+        this.swoosh = new Audio('../audio/flyby-Conor-1500306612.mp3');
 
-        //var start = false;
+        this.highScore = 0;
 
-        /* startEl
-             .addClass('is-visible')
-             .find('.Start');
-         if (controls.keys.space) {
-             startEl.removeClass('is-visible');
-             this.start();
-         }*/
         this.el = el;
         this.player = new window.Player(this.el.find('.Player'), this);
         this.pipe1 = new window.Pipes(this.el.find('.Pipes1'), this, 1);
         this.pipe2 = new window.Pipes(this.el.find('.Pipes2'), this, 2);
         this.ground = new window.Ground(this.el.find('.Ground'), this);
-        //this.pipe3 = new window.Pipes(this.el.find('.Pipes3'), this, 2);
-
-        // var startEl = this.el.find('.Start');
-
-
+        this.bubble1 = new window.Bubbles(this.el.find('.Bubble1'), this);
+        this.bubble2 = new window.Bubbles(this.el.find('.Bubble2'), this);
+        this.starfish = new window.Starfish(this.el.find('.Starfish'), this)
 
         this.isPlaying = false;
         this.score = 0;
@@ -57,13 +51,31 @@ window.Game = (function() {
         }
         if (controls.keys.space) {
             this.isPlaying = true;
+<<<<<<< HEAD
             $('.Player').css('background', 'url(../images/SealSwim.png)');
             $('.Player').css('background-size', '10em');
         }
         else{
              $('.Player').css('background', 'url(../images/SealSink.png)');
              $('.Player').css('background-size', '11.6em');
+=======
+            if (this.song.muted === false) {
+                this.swoosh.play();
+            }
+            $('#Player').addClass('rotated');
+>>>>>>> acc31f06580638788f4afd1dc9313610272d0f57
         }
+        var song = this.song;
+
+        $('#mute').click(function() {
+            if (song.muted === true) {
+                song.muted = false;
+                $('#mute').css('background-image', 'url(https://maxcdn.icons8.com/Android_L/PNG/512/Media_Controls/medium_volume-512.png)');
+            } else {
+                song.muted = true;
+                $('#mute').css('background-image', 'url(http://www.iconarchive.com/download/i91178/icons8/windows-8/Media-Controls-Mute.ico)');
+            }
+        });
 
         // Calculate how long since last frame in seconds.
         var now = +new Date() / 1000,
@@ -71,10 +83,13 @@ window.Game = (function() {
         this.lastFrame = now;
 
         // Update game entities.
-        this.player.onFrame(delta, this.isPlaying);
-        this.pipe1.onFrame(delta, this.isPlaying);
-        this.pipe2.onFrame(delta, this.isPlaying);
-        this.ground.onFrame(delta, this.isPlaying);
+        this.player.onFrame(delta);
+        this.pipe1.onFrame(delta);
+        this.pipe2.onFrame(delta);
+        this.ground.onFrame(delta);
+        this.bubble1.onFrame(delta);
+        this.bubble2.onFrame(delta);
+        this.starfish.onFrame(delta);
 
         // Request next frame.
         window.requestAnimationFrame(this.onFrame);
@@ -99,6 +114,9 @@ window.Game = (function() {
         this.player.reset();
         this.pipe1.reset();
         this.pipe2.reset();
+        this.bubble1.reset();
+        this.bubble2.reset();
+        this.starfish.reset();
         this.isPlaying = false;
     };
 
@@ -106,7 +124,15 @@ window.Game = (function() {
      * Signals that the game is over.
      */
     Game.prototype.gameover = function() {
+        if (this.song.muted === false) {
+            var audio = new Audio('../audio/9_mm_gunshot-mike-koenig-123.mp3');
+            audio.play();
+        }
         this.isPlaying = false;
+        if (this.score > this.highScore) {
+            this.highScore = this.score;
+            document.getElementById('HighScore').innerText = this.highScore;
+        }
 
         $('.Player').css('background', 'url(../images/SealFall.png)');
         $('.Player').css('background-size', '10em');

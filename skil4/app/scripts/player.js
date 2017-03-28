@@ -35,7 +35,7 @@ window.Player = (function() {
                 playing = true;
                 this.pos.y -= delta * SPEED;
             } else if (playing === true) {
-                this.pos.y += delta * 10;
+                this.pos.y += delta * 13;
             }
         }
         this.checkCollisionWithBounds();
@@ -53,33 +53,7 @@ window.Player = (function() {
             playing = false;
             return this.game.gameover();
         }
-        /* var playerLocation = document.getElementById('Player');
-         var playerPos = playerLocation.getBoundingClientRect();
-         var playerX = playerPos.left;
-         var playerY = playerPos.top;
 
-         var pipe1up = document.getElementsByClassName('scoreCheck1');
-         //var pipe1down = document.getElementsByClassName('scoreCheck2');
-         var pipe2up = document.getElementsByClassName('scoreCheck3');
-         //var pipe2down = document.getElementsByClassName('scoreCheck4');
-         var pipe1UpPos = pipe1up.getBoundingClientRect();
-         //var pipe1DownPos = pipe1down.getBoundingClientRect();
-         var pipe2UpPos = pipe2up.getBoundingClientRect();
-         //var pipe2DownPos = pipe2down.getBoundingClientRect();
-         var pipe1upX = pipe1UpPos.left;
-         var pipe1upY = pipe1UpPos.top;
-         //var pipe1downY = pipe1DownPos.top;
-         //var pipe2upX = pipe2UpPos.left;
-         var pipe2upY = pipe2UpPos.top;
-
-         //var pipe2X = pipe2Pos.left;
-         //var pipe2Y = pipe2Pos.top;
-
-         if ((pipe1upX < playerX + 1.8 && pipe1upX > playerX - 1.8) &&
-             pipe1upY > playerY &&
-             pipe2upY < playerY) {
-             this.game.score += 1;
-         }*/
     };
 
     return Player;
