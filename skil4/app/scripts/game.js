@@ -21,7 +21,9 @@ window.Game = (function() {
         this.pipe1 = new window.Pipes(this.el.find('.Pipes1'), this, 1);
         this.pipe2 = new window.Pipes(this.el.find('.Pipes2'), this, 2);
         this.ground = new window.Ground(this.el.find('.Ground'), this);
-        this.bubble = new window.Bubbles(this.el.find('.Bubble'), this);
+        this.bubble1 = new window.Bubbles(this.el.find('.Bubble1'), this);
+        this.bubble2 = new window.Bubbles(this.el.find('.Bubble2'), this);
+        this.starfish = new window.Starfish(this.el.find('.Starfish'), this)
 
         this.isPlaying = false;
         this.score = 0;
@@ -76,7 +78,9 @@ window.Game = (function() {
         this.pipe1.onFrame(delta);
         this.pipe2.onFrame(delta);
         this.ground.onFrame(delta);
-        this.bubble.onFrame(delta);
+        this.bubble1.onFrame(delta);
+        this.bubble2.onFrame(delta);
+        this.starfish.onFrame(delta);
 
         // Request next frame.
         window.requestAnimationFrame(this.onFrame);
@@ -101,6 +105,9 @@ window.Game = (function() {
         this.player.reset();
         this.pipe1.reset();
         this.pipe2.reset();
+        this.bubble1.reset();
+        this.bubble2.reset();
+        this.starfish.reset();
         this.isPlaying = false;
     };
 
