@@ -64,15 +64,15 @@ window.Game = (function() {
         //The image changes and the player is rotated in the direction it is headed
         if (controls.keys.space) {
             this.isPlaying = true;
-            $('.Player').css('background', 'url(../images/SealSwim.png)');
-            $('.Player').css('background-size', '10em');
+            $('.Player').css('background-image', 'url(../images/SealSwim.png)');
+            $('.Player').css('background-position', '-1em -0.5em');
             this.player.rotation = -0.5;
             if (this.song.muted === false) {
                 this.playSwoosh();
             }
         } else {
-            $('.Player').css('background', 'url(../images/SealSink.png)');
-            $('.Player').css('background-size', '11em');
+            $('.Player').css('background-image', 'url(../images/SealSink.png)');
+            $('.Player').css('background-position', '-1em 0.1em');
             this.player.rotation = 5;
         }
 
@@ -154,8 +154,8 @@ window.Game = (function() {
             document.getElementById('HighScore').innerText = this.highScore;
         }
 
-        $('.Player').css('background', 'url(../images/SealFall.png)');
-        $('.Player').css('background-size', '10em');
+        $('.Player').css('background-image', 'url(../images/SealFall.png)');
+        $('.Player').css('background-position', '-1em -0.6em');
 
         // Should be refactored into a Scoreboard class.
         var that = this;

@@ -51,9 +51,10 @@ window.Pipes = (function() {
     };
 
     Pipes.prototype.checkCollisionWithPlayer = function() {
-        if (((this.player.pos.x + 5) > this.pos.x) &&
+
+        if (((this.player.pos.x + 9) > this.pos.x) &&
             (this.player.pos.x < (this.pos.x + 10))) {
-            if (((this.player.pos.y) > (this.pos.y + barrier + 28)) ||
+            if (((this.player.pos.y) > (this.pos.y + barrier + 20)) ||
                 (this.player.pos.y < (this.pos.y + barrier + 10))) {
                 throughPipe = true;
                 return this.game.gameover();

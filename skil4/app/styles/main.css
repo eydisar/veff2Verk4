@@ -4,8 +4,11 @@
     left: 0;
     width: 10em;
     height: 5em;
-    background: url('../images/SealSwim.png');
-    background-size: 5em;
+    border: grey solid;
+    background-image: url('../images/SealSwim.png');
+    background: transparent;
+    background-position: -1em 0.1em;
+    background-size: 12em 6em;
     -webkit-transform: translate(0, 40em);
     -webkit-transform-origin: 50% 50%;
     -webkit-transition: all 3s ease-in-out;
@@ -54,7 +57,7 @@
 
 .Pipe2 {
     position: absolute;
-    top: 130%;
+    top: 135%;
     left: 0;
     width: 10em;
     height: 50em;
@@ -82,7 +85,7 @@
     margin-left: -20em;
     box-sizing: border-box;
     background: transparent;
-    background-image: url('http://img.clipartall.com/tiny-bubble-clip-art-bubble-clip-art-300_300.png');
+    /*background-image: url('http://img.clipartall.com/tiny-bubble-clip-art-bubble-clip-art-300_300.png');*/
     background-size: 40em;
     text-align: center;
     -webkit-transform: translate(0, -40em);
