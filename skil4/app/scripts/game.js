@@ -9,13 +9,28 @@ window.Game = (function() {
 
     var controls = window.Controls;
     var Game = function(el) {
+
+
+        //var start = false;
+
+        /* startEl
+             .addClass('is-visible')
+             .find('.Start');
+         if (controls.keys.space) {
+             startEl.removeClass('is-visible');
+             this.start();
+         }*/
         this.el = el;
         this.player = new window.Player(this.el.find('.Player'), this);
-        this.pipe1 = new window.Pipes(this.el.find('.Pipe1'), this, 1);
-        this.pipe2 = new window.Pipes(this.el.find('.Pipe2'), this, 2);
+        this.pipe1 = new window.Pipes(this.el.find('.Pipes1'), this, 1);
+        this.pipe2 = new window.Pipes(this.el.find('.Pipes2'), this, 2);
         this.ground = new window.Ground(this.el.find('.Ground'), this);
         this.bubble = new window.Bubbles(this.el.find('.Bubble'), this)
             //this.pipe3 = new window.Pipes(this.el.find('.Pipes3'), this, 2);
+
+        // var startEl = this.el.find('.Start');
+
+
 
         this.isPlaying = false;
         this.score = 0;
@@ -92,6 +107,8 @@ window.Game = (function() {
         // Should be refactored into a Scoreboard class.
         var that = this;
         var scoreboardEl = this.el.find('.Scoreboard');
+        document.getElementById('ScoreBoardScore').innerText = this.score;
+
         scoreboardEl
             .addClass('is-visible')
             .find('.Scoreboard-restart')
@@ -99,6 +116,9 @@ window.Game = (function() {
                 scoreboardEl.removeClass('is-visible');
                 that.start();
             });
+        this.score = 0;
+        document.getElementById('Score').innerText = this.score;
+
     };
 
     /**

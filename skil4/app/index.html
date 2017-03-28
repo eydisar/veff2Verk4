@@ -29,14 +29,24 @@
         <![endif]-->
 
     <div class="GameCanvas">
+        <div class="Start is-visible">
+            <p>Welcome to Flappy Fishbird!</p>
+            <p>Click me to start!</p>
+        </div>
         <div class="Player" id="Player">
             <div class="Player-Wings"></div>
         </div>
         <div class="Score">
             <span id="Score"></span>
         </div>
-        <div class="Pipe1"></div>
-        <div class="Pipe2"></div>
+        <div class="Pipes1">
+            <div class="Pipe1"><span id="scoreCheck1"></span></div>
+            <div class="Pipe2"><span id="scoreCheck2"></span></div>
+        </div>
+        <div class="Pipes2">
+            <div class="Pipe1"><span id="scoreCheck3"></span></div>
+            <div class="Pipe2"><span id="scoreCheck4"></span></div>
+        </div>
         <div class="Ground"></div>
         <div id="Star"></div>
         <div class="Bubble"></div>
@@ -44,7 +54,7 @@
         <div class="Scoreboard">
             <p class="Scoreboard-restartText">Game Over</p>
             <div class="Scoreboard-restartText">Score:
-                <span class="Scoreboard-restartText" id="score"></span>
+                <span class="Scoreboard-restartText" id="ScoreBoardScore"></span>
             </div>
             <button class="Scoreboard-restart">
                     <span class="Scoreboard-restartText">Restart</span>

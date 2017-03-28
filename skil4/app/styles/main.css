@@ -89,7 +89,7 @@
     animation: slide 8s linear infinite;
 }*/
 
-.Score {
+#Score {
     position: absolute;
     top: 10;
     left: 50%;
@@ -97,17 +97,36 @@
     height: 5em;
 }
 
-.Pipe1,
-.Pipe2 {
+.Pipes1,
+.Pipes2 {
     position: absolute;
     top: 0;
     left: 0;
-    width: 12em;
-    height: 92em;
-    background: blue;
+    width: 10em;
+    height: 50em;
+    background-size: 10em 50em;
+}
+
+.Pipe1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10em;
+    height: 50em;
     /* background-image: url('../images/pipes.png');*/
-    background-image: url('https://sites.google.com/site/zieglerscratch/_/rsrc/1472878134063/flappy-bird/mariopipe3.png');
-    background-size: 12em 92em;
+    background-image: url('http://flappycreator.com/default/tube1.png');
+    background-size: 10em 50em;
+}
+
+.Pipe2 {
+    position: absolute;
+    top: 125%;
+    left: 0;
+    width: 10em;
+    height: 50em;
+    /* background-image: url('../images/pipes.png');*/
+    background-image: url('http://flappycreator.com/default/tube2.png');
+    background-size: 10em 50em;
 }
 
 .Player-Wings {
@@ -131,7 +150,8 @@
     }
 }
 
-.Scoreboard {
+.Scoreboard,
+.Start {
     position: absolute;
     left: 50%;
     top: 10em;
@@ -150,7 +170,8 @@
 * Reset transform to animate it into the correct spot on the screen.
 */
 
-.Scoreboard.is-visible {
+.Scoreboard.is-visible,
+.Start.is-visible {
     -webkit-transform: none;
 }
 
@@ -163,10 +184,21 @@
     cursor: pointer;
 }
 
-.Scoreboard-restartText {
+.Scoreboard-restartText,
+.Score {
     font-family: 'Comic Sans MS', serif;
     font-size: 2.4em;
     color: white;
+}
+
+.Start {
+    font-family: 'Comic Sans MS', serif;
+    font-size: 2.4em;
+    color: white;
+    margin-left: -10em;
+    width: 20em;
+    height: 8em;
+    z-index: 1000;
 }
 
 body {
@@ -185,10 +217,12 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 102.4em;
-    height: 57.6em;
-    margin-left: -51.2em;
-    margin-top: -28.8em;
+    /* width: 102.4em;
+    height: 57.6em;*/
+    width: 50em;
+    height: 100%;
+    margin-left: -25em;
+    margin-top: -36em;
     overflow: hidden;
     background-image: url('https://s-media-cache-ak0.pinimg.com/736x/dd/f5/a7/ddf5a7c3248d3c9b6a562cb523f2debf.jpg');
     background-size: 108em, 57.6em;
@@ -229,10 +263,10 @@ body {
     position: absolute;
     bottom: 3em;
     left: 50%;
-    width: 2em;
-    height: 4em;
+    width: 4em;
+    height: 8em;
     background-image: url('https://img.clipartfox.com/3af0f1334970c28ccc3b2e6ffb15dfa0_bubbles-clip-art-at-clker-com-water-bubble-clipart_294-599.png');
-    background-size: 2em;
+    background-size: 4em;
 }
 
 @keyframes float {
