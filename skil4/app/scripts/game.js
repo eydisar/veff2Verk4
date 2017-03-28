@@ -23,7 +23,11 @@ window.Game = (function() {
         this.ground = new window.Ground(this.el.find('.Ground'), this);
         this.bubble1 = new window.Bubbles(this.el.find('.Bubble1'), this);
         this.bubble2 = new window.Bubbles(this.el.find('.Bubble2'), this);
-        this.starfish = new window.Starfish(this.el.find('.Starfish'), this)
+        this.jelly1 = new window.Bubbles(this.el.find('.Jelly1'), this);
+        this.starfish = new window.Starfish(this.el.find('.Starfish'), this);
+        this.fish1 = new window.Fish(this.el.find('.Fish1'), this);
+        this.turtle1 = new window.Turtle(this.el.find('.Turtle1'), this);
+
 
         this.isPlaying = false;
         this.score = 0;
@@ -87,7 +91,10 @@ window.Game = (function() {
         this.ground.onFrame(delta);
         this.bubble1.onFrame(delta);
         this.bubble2.onFrame(delta);
+        this.jelly1.onFrame(delta);
         this.starfish.onFrame(delta);
+        this.fish1.onFrame(delta);
+        this.turtle1.onFrame(delta);
 
         // Request next frame.
         window.requestAnimationFrame(this.onFrame);
@@ -114,7 +121,10 @@ window.Game = (function() {
         this.pipe2.reset();
         this.bubble1.reset();
         this.bubble2.reset();
+        this.jelly1.reset();
         this.starfish.reset();
+        this.fish1.reset();
+        this.turtle1.reset();
         this.isPlaying = false;
     };
 

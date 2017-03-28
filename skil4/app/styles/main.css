@@ -215,12 +215,32 @@ body {
     background-size: 4em;
 }
 
-.Turtle {
+.Turtle1 {
     position: absolute;
-    bottom: 3em;
-    left: 50%;
-    width: 4em;
+    bottom: 40em;
+    left: -1%;
+    width: 8em;
     height: 8em;
     background-image: url('https://img.clipartfest.com/c75478d789ab728229079443def48e49_09c662d9633ad9ac3a1b5f88e89775-sea-turtle-clipart-transparent-background_432-432.png');
+    background-size: 8em;
+}
+
+.Fish1 {
+    position: absolute;
+    bottom: 40em;
+    left: -1%;
+    width: 8em;
+    height: 7em;
+    background-image: url('https://img.clipartfox.com/55587b4d443b6c2880b8cf65471db779_fish-clip-art-image-555-cute-fish-clipart-no-background_592-559.png');
+    background-size: 8em;
+}
+
+.Jelly1 {
+    position: absolute;
+    bottom: -10em;
+    left: 150%;
+    width: 6em;
+    height: 7em;
+    background-image: url('https://img.clipartfest.com/5a51fb603fab321765b196504fcc9e20_jellyfish20clip20art-cute-fish-clipart-no-background_1969-2750.png');
     background-size: 6em;
 }
