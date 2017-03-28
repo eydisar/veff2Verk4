@@ -9,6 +9,11 @@ window.Game = (function() {
 
     var controls = window.Controls;
     var Game = function(el) {
+
+        this.song = new Audio('../audio/bensound-extremeaction.mp3');
+        this.song.play();
+        this.swoosh = new Audio('../audio/flyby-Conor-1500306612.mp3');
+
         this.highScore = 0;
 
         this.el = el;
@@ -16,6 +21,7 @@ window.Game = (function() {
         this.pipe1 = new window.Pipes(this.el.find('.Pipes1'), this, 1);
         this.pipe2 = new window.Pipes(this.el.find('.Pipes2'), this, 2);
         this.ground = new window.Ground(this.el.find('.Ground'), this);
+        this.bubble = new window.Bubbles(this.el.find('.Bubble'), this);
 
         this.isPlaying = false;
         this.score = 0;
@@ -43,7 +49,22 @@ window.Game = (function() {
         }
         if (controls.keys.space) {
             this.isPlaying = true;
+            if (this.song.muted === false) {
+                this.swoosh.play();
+            }
+            $('#Player').addClass('rotated');
         }
+        var song = this.song;
+
+        $('#mute').click(function() {
+            if (song.muted === true) {
+                song.muted = false;
+                $('#mute').css('background-image', 'url(https://maxcdn.icons8.com/Android_L/PNG/512/Media_Controls/medium_volume-512.png)');
+            } else {
+                song.muted = true;
+                $('#mute').css('background-image', 'url(http://www.iconarchive.com/download/i91178/icons8/windows-8/Media-Controls-Mute.ico)');
+            }
+        });
 
         // Calculate how long since last frame in seconds.
         var now = +new Date() / 1000,
@@ -55,6 +76,7 @@ window.Game = (function() {
         this.pipe1.onFrame(delta);
         this.pipe2.onFrame(delta);
         this.ground.onFrame(delta);
+        this.bubble.onFrame(delta);
 
         // Request next frame.
         window.requestAnimationFrame(this.onFrame);
@@ -86,6 +108,10 @@ window.Game = (function() {
      * Signals that the game is over.
      */
     Game.prototype.gameover = function() {
+        if (this.song.muted === false) {
+            var audio = new Audio('../audio/9_mm_gunshot-mike-koenig-123.mp3');
+            audio.play();
+        }
         this.isPlaying = false;
         if (this.score > this.highScore) {
             this.highScore = this.score;

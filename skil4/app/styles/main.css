@@ -7,7 +7,18 @@
     background: yellow;
     border-radius: 1em;
     webkit-transform: translate(0, 40em);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     /* -webkit-transition: -webkit-transform 3s;*/
+}
+
+.rotated {
+    transform: rotate(25deg);
+    -webkit-transform: rotate(25deg);
+    -moz-transform: rotate(25deg);
+    -o-transform: rotate(25deg);
 }
 
 
@@ -201,6 +212,20 @@
     z-index: 1000;
 }
 
+#mute {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    font-size: 1.6em;
+    background-image: url('http://www.iconarchive.com/download/i91178/icons8/windows-8/Media-Controls-Mute.ico');
+    background-size: 3em;
+    z-index: 1000;
+}
+
 body {
     background: black;
 }
@@ -259,17 +284,14 @@ body {
     }
 }
 
-#Bubble {
+.Bubble {
     position: absolute;
     bottom: 3em;
     left: 50%;
-    width: 2em;
-    height: 4em;
+    width: 4em;
+    height: 8em;
     background-image: url('https://img.clipartfox.com/3af0f1334970c28ccc3b2e6ffb15dfa0_bubbles-clip-art-at-clker-com-water-bubble-clipart_294-599.png');
-    background-size: 2em;
-    border-radius: 1em;
-    transform-origin: top left;
-    animation: float 20s linear infinite;
+    background-size: 4em;
 }
 
 @keyframes float {

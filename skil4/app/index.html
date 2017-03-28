@@ -33,6 +33,14 @@
             <p>Welcome to Flappy Fishbird!</p>
             <p>Click me to start!</p>
         </div>
+        <button id="mute"></button>
+        <!-- <audio>
+            <source src="../audio/bensound-extremeaction.mp3" type="audio/mpeg">
+            <source src="horse.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>-->
+        <audio id="shot">
+        </audio>
         <div class="Player" id="Player">
             <div class="Player-Wings"></div>
         </div>
@@ -49,7 +57,7 @@
         </div>
         <div class="Ground"></div>
         <div id="Star"></div>
-        <div id="Bubble"></div>
+        <div class="Bubble"></div>
 
         <div class="Scoreboard">
             <p class="Scoreboard-restartText">Game Over</p>
@@ -81,6 +89,7 @@
     <script src="scripts/player.js"></script>
     <script src="scripts/utils.js"></script>
     <script src="scripts/ground.js"></script>
+    <script src="scripts/bubbles.js"></script>
     <!-- endbuild -->
 </body>
 
