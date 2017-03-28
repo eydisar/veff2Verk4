@@ -18,4 +18,6 @@ grunt server
 ## Additions
 
 Sound effects (royalty free) were added, along with Selma Björnsdóttir's classic song "All out of luck", as background music.
+You can mute either the song or the sound effects, or both.
 The player can keep track of his/her high score as well as his/her current score.
+The game was tested in Firefox and Chrome.

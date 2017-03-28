@@ -11,6 +11,10 @@ window.Game = (function() {
     var Game = function(el) {
 
         this.song = new Audio('../audio/AllOutOfLuck.mp3');
+        this.song.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        }, false);
         this.song.play();
         this.swoosh = new Audio('../audio/Swoosh.mp3');
 
