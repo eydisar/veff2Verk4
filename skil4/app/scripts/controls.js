@@ -21,17 +21,11 @@ window.Controls = (function() {
     var Controls = function() {
         this._didJump = false;
         this.keys = {};
-        /* $('.GameCanvas').click(function() {
-             this.keyCode = 32;
-             this._onKeyDown.bind(this);
-             this._onKeyUp.bind(this);
-             console.log(this.keyCode);
-         });*/
+
         var temp = this;
 
         temp.keyCode = 32;
         $(window)
-            // .on('tap', this._onKeyDown.bind(this))
             .on('mousedown', this._onKeyDown.bind(this))
             .on('mouseup', this._onKeyUp.bind(this))
             .on('keydown', this._onKeyDown.bind(this))

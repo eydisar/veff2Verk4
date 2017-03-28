@@ -4,27 +4,17 @@
     left: 0;
     width: 10em;
     height: 5em;
-    border: grey solid;
     background-image: url('../images/SealSwim.png');
     background: transparent;
     background-position: -1em 0.1em;
     background-size: 12em 6em;
     -webkit-transform: translate(0, 40em);
-    -webkit-transform-origin: 50% 50%;
-    -webkit-transition: all 3s ease-in-out;
-    -moz-transition: all 3s ease-in-out;
-    -o-transition: all 3s ease-in-out;
-    transition: all 3s ease-in-out;
-    /* -webkit-transition: -webkit-transform 3s;*/
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: -webkit-transform 3s;
 }
-
-
-/*.rotated {
-    transform: rotate(25deg);
-    -webkit-transform: rotate(25deg);
-    -moz-transform: rotate(25deg);
-    -o-transform: rotate(25deg);
-}*/
 
 #Score {
     position: absolute;
@@ -50,7 +40,6 @@
     left: 0;
     width: 10em;
     height: 50em;
-    /* background-image: url('../images/pipes.png');*/
     background-image: url('http://flappycreator.com/default/tube1.png');
     background-size: 10em 50em;
 }
@@ -61,18 +50,8 @@
     left: 0;
     width: 10em;
     height: 50em;
-    /* background-image: url('../images/pipes.png');*/
     background-image: url('http://flappycreator.com/default/tube2.png');
     background-size: 10em 50em;
-}
-
-@keyframes Swim {
-    from {
-        background: url('../images/Seal.png') bottom;
-    }
-    to {
-        background: url('../images/Seal.png') top;
-    }
 }
 
 .Scoreboard,
@@ -85,7 +64,7 @@
     margin-left: -20em;
     box-sizing: border-box;
     background: transparent;
-    /*background-image: url('http://img.clipartall.com/tiny-bubble-clip-art-bubble-clip-art-300_300.png');*/
+    background-image: url('http://img.clipartall.com/tiny-bubble-clip-art-bubble-clip-art-300_300.png');
     background-size: 40em;
     text-align: center;
     -webkit-transform: translate(0, -40em);
@@ -120,10 +99,19 @@
     color: dimgray;
 }
 
+.Score {
+    font-size: 5em;
+    font: bold;
+    color: white;
+    position: absolute;
+    left: 50%;
+    z-index: 100;
+}
+
 .StartText {
-    padding-top: 5em;
+    padding-top: 4em;
     font-family: 'Lucida Console', serif;
-    font-size: 2em;
+    font-size: 1.8em;
     color: dimgray;
 }
 
@@ -135,17 +123,16 @@
 }
 
 #mute {
+    position: absolute;
     background-color: transparent;
     border: none;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     width: 3em;
     height: 3em;
-    font-size: 1.6em;
     background-image: url('https://maxcdn.icons8.com/Android_L/PNG/512/Media_Controls/medium_volume-512.png');
     background-size: 3em;
-    z-index: 1000;
+    z-index: 100;
 }
 
 body {
@@ -154,7 +141,6 @@ body {
 
 .browsehappy {
     margin: 0.2em 0;
-    /* background: ?#?ccc?;*/
     color: #000;
     padding: 0.2em 0;
 }
@@ -164,15 +150,12 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    /* width: 102.4em;
-    height: 57.6em;*/
     width: 50em;
     height: 100%;
     margin-left: -25em;
     margin-top: -36em;
     overflow: hidden;
     background-image: url('http://pre11.deviantart.net/a978/th/pre/f/2011/250/e/e/undersea_bubbles_by_toonham-d496uzo.jpg');
-    /* background-image: url('https://s-media-cache-ak0.pinimg.com/736x/dd/f5/a7/ddf5a7c3248d3c9b6a562cb523f2debf.jpg');*/
     background-size: 50em, 100%;
     z-index: -1000;
 }

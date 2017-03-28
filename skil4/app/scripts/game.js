@@ -17,8 +17,6 @@ window.Game = (function() {
         this.playSwoosh = function() {
             this.swoosh.load();
             this.swoosh.play();
-
-            //this.swoosh.play();
         };
 
         this.highScore = 0;
@@ -42,8 +40,7 @@ window.Game = (function() {
         var fontSize = Math.min(
             window.innerWidth / 50,
             window.innerHeight / 75
-            //window.innerWidth / 102.4,
-            //window.innerHeight / 57.6
+
         );
         el.css('fontSize', fontSize + 'px');
 
@@ -64,8 +61,10 @@ window.Game = (function() {
         //The image changes and the player is rotated in the direction it is headed
         if (controls.keys.space) {
             this.isPlaying = true;
+
             $('.Player').css('background-image', 'url(../images/SealSwim.png)');
             $('.Player').css('background-position', '-1em -0.5em');
+
             this.player.rotation = -0.5;
             if (this.song.muted === false) {
                 this.playSwoosh();
@@ -75,9 +74,6 @@ window.Game = (function() {
             $('.Player').css('background-position', '-1em 0.1em');
             this.player.rotation = 5;
         }
-
-
-        $('#Player').addClass('rotated');
 
         var song = this.song;
 
@@ -121,6 +117,7 @@ window.Game = (function() {
         // Restart the onFrame loop
         this.lastFrame = +new Date() / 1000;
         window.requestAnimationFrame(this.onFrame);
+
         this.isPlaying = true;
     };
 
@@ -177,8 +174,6 @@ window.Game = (function() {
     /**
      * Some shared constants.
      */
-    // Game.prototype.WORLD_WIDTH = 102.4;
-    //Game.prototype.WORLD_HEIGHT = 57.6;
     Game.prototype.WORLD_WIDTH = 40;
     Game.prototype.WORLD_HEIGHT = 70;
 

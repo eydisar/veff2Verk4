@@ -52,29 +52,22 @@ window.Pipes = (function() {
 
     Pipes.prototype.checkCollisionWithPlayer = function() {
 
-        if (((this.player.pos.x + 9) > this.pos.x) &&
-            (this.player.pos.x < (this.pos.x + 10))) {
+        //Since the sprite image is not quite as large as the object itself (which has the width of 10),
+        //the collision test is a bit more lenient (we used 8 instead of 10 where it applied) for slightly easier gameplay
+        var newWidth = 8;
+        if (((this.player.pos.x + newWidth) > this.pos.x) &&
+            (this.player.pos.x < (this.pos.x + newWidth))) {
             if (((this.player.pos.y) > (this.pos.y + barrier + 20)) ||
-                (this.player.pos.y < (this.pos.y + barrier + 10))) {
+                (this.player.pos.y < (this.pos.y + barrier + newWidth))) {
                 throughPipe = true;
                 return this.game.gameover();
             } else {
                 throughPipe = false;
             }
-
-            /*  if (((this.player.pos.y + 5) > (this.pos.y + barrier + 22.5)) ||
-                  (this.player.pos.y < (this.pos.y + barrier + 10))) {
-                  throughPipe = true;
-                  return this.game.gameover();
-              } else {
-                  throughPipe = false;
-              }*/
         }
-        //console.log(this.pos.x + 10);
-        //console.log('player: ' + this.player.pos.x);
+
         if (((this.player.pos.x < (this.pos.x + 11) && (this.player.pos.x > (this.pos.x + 10)))) && !throughPipe) {
             this.game.score++;
-            console.log('score ' + this.game.score);
             throughPipe = true;
             document.getElementById('Score').innerText = this.game.score;
         }
