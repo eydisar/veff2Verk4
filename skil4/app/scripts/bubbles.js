@@ -3,7 +3,7 @@ window.Bubbles = (function() {
 
     //var INITIAL_POSITION_X = 10;
 
-    var INITIAL_POSITION_Y = 20;
+    //var INITIAL_POSITION_Y = 20;
     var SPEED = 20;
 
     var Bubbles = function(el, game) {

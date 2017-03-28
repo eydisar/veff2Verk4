@@ -5,21 +5,23 @@
     width: 10em;
     height: 5em;
     background: url('../images/SealSwim.png');
-    background-size: 5em; 
-    webkit-transform: translate(0, 40em);
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+    background-size: 5em;
+    -webkit-transform: translate(0, 40em);
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transition: all 3s ease-in-out;
+    -moz-transition: all 3s ease-in-out;
+    -o-transition: all 3s ease-in-out;
+    transition: all 3s ease-in-out;
     /* -webkit-transition: -webkit-transform 3s;*/
 }
 
-.rotated {
+
+/*.rotated {
     transform: rotate(25deg);
     -webkit-transform: rotate(25deg);
     -moz-transform: rotate(25deg);
     -o-transform: rotate(25deg);
-}
+}*/
 
 #Score {
     position: absolute;
@@ -52,7 +54,7 @@
 
 .Pipe2 {
     position: absolute;
-    top: 125%;
+    top: 130%;
     left: 0;
     width: 10em;
     height: 50em;
@@ -60,18 +62,6 @@
     background-image: url('http://flappycreator.com/default/tube2.png');
     background-size: 10em 50em;
 }
-
-/*.Player-Wings {
-    position: absolute;
-    left: 0.25em;
-    top: 0.4em;
-    height: 2em;
-    width: 3em;
-    border-radius: 10px;
-    background-color: orangered;
-    transform-origin: top left;
-    animation: flap 0.4s infinite;
-}*/
 
 @keyframes Swim {
     from {
@@ -150,9 +140,9 @@
     width: 3em;
     height: 3em;
     font-size: 1.6em;
-    background-image: url('http://www.iconarchive.com/download/i91178/icons8/windows-8/Media-Controls-Mute.ico');
+    background-image: url('https://maxcdn.icons8.com/Android_L/PNG/512/Media_Controls/medium_volume-512.png');
     background-size: 3em;
-    z-index: 2000;
+    z-index: 1000;
 }
 
 body {

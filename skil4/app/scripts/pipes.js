@@ -53,14 +53,21 @@ window.Pipes = (function() {
     Pipes.prototype.checkCollisionWithPlayer = function() {
         if (((this.player.pos.x + 5) > this.pos.x) &&
             (this.player.pos.x < (this.pos.x + 10))) {
-
-            if (((this.player.pos.y + 5) > (this.pos.y + barrier + 22.5)) ||
+            if (((this.player.pos.y) > (this.pos.y + barrier + 28)) ||
                 (this.player.pos.y < (this.pos.y + barrier + 10))) {
                 throughPipe = true;
                 return this.game.gameover();
             } else {
                 throughPipe = false;
             }
+
+            /*  if (((this.player.pos.y + 5) > (this.pos.y + barrier + 22.5)) ||
+                  (this.player.pos.y < (this.pos.y + barrier + 10))) {
+                  throughPipe = true;
+                  return this.game.gameover();
+              } else {
+                  throughPipe = false;
+              }*/
         }
         //console.log(this.pos.x + 10);
         //console.log('player: ' + this.player.pos.x);

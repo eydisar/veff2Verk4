@@ -10,9 +10,16 @@ window.Game = (function() {
     var controls = window.Controls;
     var Game = function(el) {
 
-        this.song = new Audio('../audio/bensound-extremeaction.mp3');
+        this.song = new Audio('../audio/AllOutOfLuck.mp3');
         this.song.play();
-        this.swoosh = new Audio('../audio/flyby-Conor-1500306612.mp3');
+        this.swoosh = new Audio('../audio/Swoosh.mp3');
+
+        this.playSwoosh = function() {
+            this.swoosh.load();
+            this.swoosh.play();
+
+            //this.swoosh.play();
+        };
 
         this.highScore = 0;
 
@@ -53,18 +60,23 @@ window.Game = (function() {
         if (!this.isPlaying) {
             return;
         }
+
+        //The image changes and the player is rotated in the direction it is headed
         if (controls.keys.space) {
             this.isPlaying = true;
             $('.Player').css('background', 'url(../images/SealSwim.png)');
             $('.Player').css('background-size', '10em');
+            this.player.rotation = -0.5;
+            if (this.song.muted === false) {
+                this.playSwoosh();
+            }
         } else {
             $('.Player').css('background', 'url(../images/SealSink.png)');
             $('.Player').css('background-size', '11em');
+            this.player.rotation = 5;
         }
 
-        if (this.song.muted === false) {
-            this.swoosh.play();
-        }
+
         $('#Player').addClass('rotated');
 
         var song = this.song;
@@ -133,7 +145,7 @@ window.Game = (function() {
      */
     Game.prototype.gameover = function() {
         if (this.song.muted === false) {
-            var audio = new Audio('../audio/9_mm_gunshot-mike-koenig-123.mp3');
+            var audio = new Audio('../audio/Splat.mp3');
             audio.play();
         }
         this.isPlaying = false;
