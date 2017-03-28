@@ -127,14 +127,18 @@
     color: dimgray;
 }
 
-.Start {
+.StartText {
+    padding-top: 5em;
     font-family: 'Lucida Console', serif;
     font-size: 2em;
     color: dimgray;
-    margin-left: -10em;
-    /*width: 20em;
-    height: 8em;*/
-    z-index: 1000;
+}
+
+.Start {
+    font-family: 'Lucida Console', serif;
+    font-size: 1em;
+    color: dimgray;
+    z-index: 100;
 }
 
 #mute {
